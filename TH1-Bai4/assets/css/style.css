@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+form {
+    width: 65%;
+    margin: 50px;
+    padding: 50px 20px 0;
+    border: 10px solid rgb(238, 238, 238);
+    border-bottom: 25px solid rgb(238, 238, 238);
+}
+
+h3 {
+    border-bottom: 3px solid gray;
+}
+
+.detail {
+    padding: 5px 30px 30px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+    margin-bottom: 0 !important;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+ ul{
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.content {
+    position: relative;
+    padding: 0 !important;
+}
+
+.content .input, .content i, .content b {
+    position: absolute;
+}
+
+i {
+    top: 15px;
+    right: 12px;
+    transform: translateY(-50%);
+    font-size: 13px;
+}
+
+.content b {
+    top: 15px;
+    right: -20px;
+    transform: translateY(-50%);
+    font-size: 13px;
+}
+
+
+#notes {
+    padding: 20px 0;
+}
+
+#editor {
+    min-height: 200px;
+}
+
+#capcha-code {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+#capcha-code canvas {
+    height: 100px;
+}
+
+#capcha-code button {
+    position: relative;
+    top: -10px;
+    margin-left: 20px;
+}
+
+#textBox {
+    margin-top: 5px;
+}
+
+.incorrectCaptcha {
+    color: #FF0000;
+}
+
+.correctCaptcha {
+    color: #7FFF00;
+}
+
+.Preferred-Shift ul{
+    margin-top: 40px;
+}
+
+#submit #submitButton, #submit #refreshButton{
+    border-radius: 0%;
+}
+#submit{
+    
+    margin-left: auto;
+}
+#submit i{
+    margin-bottom: -20px;
+}
+
+.previous{
+    text-align: center;
+    margin-right: auto;
+}
+
+.previous .fa-solid{
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    color: aliceblue;
+    
+}
