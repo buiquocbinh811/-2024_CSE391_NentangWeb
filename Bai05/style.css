@@ -1,0 +1,59 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+main .col-6 p{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btnXoa{
+    background-color: rgb(215, 52, 67);
+    color: #fff;
+    margin: 20px 5px;
+    border: none;
+    padding: 5px;
+}
+
+.btnThem{
+    background-color: rgb(39, 163, 67);
+    color: #fff;
+    margin: 20px 5px;
+    border: none;
+    padding: 5px;
+}
+
+.fa-solid{
+    padding: 7px;
+    border: none;
+    background: none;
+}
+
+.fa-pen{
+    color: rgb(249, 194, 30);
+}
+
+.fa-trash{
+    color: red;
+}
+
+.table tr th{
+    margin: 20px;
+    padding: 10px;
+}
+
+footer p{
+    color: rgb(83, 101, 132);
+    margin: 0px;
+}
+
+footer .col-6 button{
+    background: none;
+    border: none;
+    color: rgb(171, 171, 171);
+}
+
