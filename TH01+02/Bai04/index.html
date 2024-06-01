@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Bai04</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        body{
+            font-family: "Roboto",sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 10px solid #ccc;
+        }
+
+        h2 {
+            margin: 30px 0px 0px 15px;
+        }
+
+        .content {
+            margin: 20px;
+            display: grid;
+            grid-template-columns: 200px auto;
+        }
+
+        .content div {
+            margin: 3px;
+        }
+
+        #gender {
+            text-align: left;
+            margin: 28px auto;
+        }
+
+        .form-label * {
+            margin: 2px auto;
+            padding: 5px;
+        }
+
+        .form-content * {
+            margin: 2px auto;
+            padding: 5px;
+        }
+
+        [type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer {
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        button {
+            background-color: #000;
+            color: #fff;
+            padding: 7px;
+        }
+
+        hr {
+        background-color: #ccc;
+            height: 2px;
+            width: 95%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="header">
+            <h2>Basic Info</h2>
+            <hr>
+            <div class="content">
+                <div class="form-label">
+                    <div>Employee ID</div>
+                    <div>Last Name</div>
+                    <div>First Name</div>
+                    <div id="gender">Gender</div>
+                    <div>Title</div>
+                    <div>Suffix</div>
+                    <div>BirthDate</div>
+                    <div>HireDate</div>
+                    <div>SSN # (if applicable)</div>
+                    <div>Reports To</div>
+                </div>
+
+                <div class="form-content">
+                    <p>9</p>
+                    <p>Dodsworth</p>
+                    <input type="text" name="" id="" value="Anne">
+                    <br><input type="radio" name="gender" id=""> Male
+                    <br><input type="radio" name="gender" id=""> Fermale
+                    <br><input type="radio" name="gender" id=""> XXX
+                    <br><input type="radio" name="gender" id=""> ZZZ
+
+                    <br><input type="text" name="" id="" value="Sales Representative">
+                    <br><input type="text" name="" id="" value="Ms.">
+                    <br><input type="text" name="" id="" value="1969-07-02 00:00:00"> 
+                    <br><input type="text" name="" id="" value="1994-11-15 00:00:00">
+                    <br><input type="text" name="" id="">
+
+                    <br><select name="" id="">
+                        <option value="">Buchanan</option>
+                        <option value="">Lê Doãn Tú</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <h2>Contact Info</h2>
+            <hr>
+            <div class="content">
+                <div class="form-label">
+                    <div>Email</div>
+                    <div>Address</div>
+                    <div>City</div>
+                    <div>Region</div>
+                    <div>Postal Code</div>
+                    <div>Country</div>
+                    <div>US Home Phone</div>
+                    <div>Photo</div>
+                </div>
+                <div class="form-content">
+                    <input type="text" name="" id="" placeholder="name@example.com">
+                    <br><input type="text" name="" id="" value="7 Houndstooth Rd.">
+                    <br><input type="text" name="" id="" value="London">
+                    <br><input type="text" name="" id="">
+                    <br><input type="text" name="" id="" value="WG2 7LT">
+                    <br><select name="" id="">
+                        <option value="">Russian Federation</option>
+                        <option value="">Việt Nam</option>
+
+                    </select>
+                    <br><input type="text" name="" id="" value="(234)234-2342">
+                    <br><input type="text" name="" id="" value="EmpID9.bmp">
+
+                </div>
+            </div>
+            <h2>Optional Info</h2>
+            <hr>
+            <div class="content">
+                <div class="form-label">
+                    <div>Notes</div>
+                    <div>Preferref Shift</div>
+                    <div>Active?</div>
+                    <div style="margin: 50px auto;">Are you human?</div>
+                </div>
+                <div class="form-content">
+                    <input type="text" placeholder="Note">
+                    <br><input type="checkbox" name="" id="">Regular
+                    <br><input type="checkbox" name="" id="">Gravy Yard
+                    <br><input type="checkbox" name="" id="">
+                    <br><img style="height: 40px;" src="./tidawo.png" alt="">
+                    <br>
+                    <p style="text-align: center; margin: 0; padding: 0;">Click to change</p>
+                    <input style="margin: 0; padding: 0; height: 25px;" type="text">
+
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <div class="footer-left">
+                <button><i class="fa-solid fa-backward"></i></button>
+                <button><i class="fa-solid fa-forward"></i></button>
+                <p>* required</p>
+                
+            </div>
+            <div class="footer-right">
+                <button><i class="fa-solid fa-floppy-disk"></i><span style="padding-left: 7px;">Submit</span></button>
+                <button><i class="fa-solid fa-x"></i><span style="padding-left: 7px;">Cancel</span></button>
+            </div>
+        </footer>
+    </form>
+    
+</body>
+
+</html>
