@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ứng dụng quản lý sinh viên</title>
+    <style>
+        /* CSS cơ bản cho giao diện */
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        input[type=text], input[type=date] { width: 100%; padding: 8px; }
+        button { padding: 8px 16px; background-color: #4CAF50; color: white; border: none; }
+        .error-message { color: red; }
+    </style>
+</head>
+<body onload="hienThiDanhSachSinhVien()">
+
+<h2>Thêm sinh viên</h2>
+<form id="formSinhVien">
+    Họ tên: <input type="text" id="hoTen"><br><br> <div class="error-message"></div>
+    Mã SV: <input type="text" id="maSV"><br><br> <div class="error-message"></div>
+    Ngày sinh: <input type="date" id="ngaySinh"><br><br> <div class="error-message"></div>
+    Lớp: <input type="text" id="lop"><br><br> <div class="error-message"></div>
+    <input type="hidden" id="index"><br><!-- Thêm input hidden để lưu index của sinh viên cần sửa trên form-->
+    <button type="submit" id="save" onclick="addNew()">Thêm</button>
+    <button type="submit" id="update" onclick="changeStudent()" style="display: none">Cập nhật</button>
+</form>
+
+<h2>Danh sách sinh viên</h2>
+<table id="bangSinhVien">
+    <tr>
+        <th>Họ tên</th>
+        <th>Mã SV</th>
+        <th>Ngày sinh</th>
+        <th>Lớp</th>
+        <th>Hành động</th>
+    </tr>
+</table>
+
+<script>
+    function resetInput(){
+        document.getElementById("hoTen").value = ""
+        document.getElementById("maSV").value = ""
+        document.getElementById("ngaySinh").value = ""
+        document.getElementById("lop").value = ""
+    }
+    // JavaScript (bạn sẽ viết các hàm xử lý sự kiện tại đây)
+    document.getElementById("formSinhVien").addEventListener("submit", function(event) {
+        event.preventDefault(); // Ngăn chặn form submit mặc định
+        
+        // Lấy dữ liệu từ form
+        // ...
+        
+        // Validate dữ liệu
+        // ...
+        
+        // Thêm sinh viên vào bảng và localStorage
+        // ...
+    });
+    
+    function validateInput() {
+        let inputs = document.querySelectorAll("#formSinhVien input");
+        let errorMessages = document.getElementsByClassName("error-message");
+
+        for (let i = 0; i < inputs.length; i++) {
+            if (errorMessages[i]) {
+                if (inputs[i].value == "") {
+                    errorMessages[i].textContent = "Vui lòng điền thông tin";
+                } else {
+                    errorMessages[i].textContent = "";
+                }
+            }
+        }
+    }
+
+    function addNew(){
+        validateInput();
+        let inputs = document.querySelectorAll("#formSinhVien input");
+        let errorMessages = document.getElementsByClassName("error-message");
+        let arrErrorMessages = [];
+        for (let i = 0; i < errorMessages.length; i++) {
+            arrErrorMessages.push(errorMessages[i].innerHTML);
+        }
+        let checkErrorMessages = arrErrorMessages.every(value => value == "")//kiem tra tat ca cac phan tu trong mang co gia tri rong hay khong
+        if (checkErrorMessages){
+            let hoTen = document.getElementById("hoTen").value;
+            let maSV = document.getElementById("maSV").value;
+            let ngaySinh = document.getElementById("ngaySinh").value;
+            let lop = document.getElementById("lop").value;
+            let listStudent = localStorage.getItem("listStudent") ? JSON.parse(localStorage.getItem("listStudent")) : [] //kiem tra xem co du lieu trong localStorage chua if co thi giai ma lay ra con khong thi tao mang rong
+            listStudent.push({ //them du lieu vao mang
+                hoTen: hoTen,
+                maSV: maSV,
+                ngaySinh: ngaySinh,
+                lop: lop
+            })
+            localStorage.setItem("listStudent", JSON.stringify(listStudent)) //luu du lieu vao localStorage
+            hienThiDanhSachSinhVien();
+        }
+    }
+
+    function hienThiDanhSachSinhVien(){ //hien thi danh sach sinh vien
+        let listStudent = localStorage.getItem("listStudent") ? JSON.parse(localStorage.getItem("listStudent")) : [] //kiem tra xem co du lieu trong localStorage chua if co thi giai ma lay ra con khong thi tao mang rong
+        let student = `
+        <tr>
+            <th>Họ tên</th>
+            <th>Mã SV</th>
+            <th>Ngày sinh</th>
+            <th>Lớp</th>
+            <th>Hành động</th>
+        </tr>`
+
+        listStudent.map((value, index) => { //duyet mang
+            student += `
+            <tr>
+                <td>${value.hoTen}</td>
+                <td>${value.maSV}</td>
+                <td>${value.ngaySinh}</td>
+                <td>${value.lop}</td>
+                <td>
+                    <button onclick="editStudent(${index})">Sửa</button>
+                    <button onclick="deleteStudent(${index})">Xóa</button>
+                </td>
+            </tr>`
+        })
+
+        document.getElementById("bangSinhVien").innerHTML = student//hien thi danh sach sinh vien
+
+    }
+
+    function editStudent(index){
+        let listStudent = localStorage.getItem("listStudent") ? JSON.parse(localStorage.getItem("listStudent")) : [] //kiem tra xem co du lieu trong localStorage chua if co thi giai ma lay ra con khong thi tao mang rong
+        document.getElementById("hoTen").value = listStudent[index].hoTen
+        document.getElementById("maSV").value = listStudent[index].maSV
+        document.getElementById("ngaySinh").value = listStudent[index].ngaySinh
+        document.getElementById("lop").value = listStudent[index].lop
+        document.getElementById("index").value = index
+
+        document.getElementById("save").style.display = "none"
+        document.getElementById("update").style.display = "inline-block"
+    }
+
+    function changeStudent(){
+        let listStudent = localStorage.getItem("listStudent") ? JSON.parse(localStorage.getItem("listStudent")) : [] //kiem tra xem co du lieu trong localStorage chua if co thi giai ma lay ra con khong thi tao mang rong
+        let index = document.getElementById("index").value
+        listStudent[index].hoTen = document.getElementById("hoTen").value
+        listStudent[index].maSV = document.getElementById("maSV").value
+        listStudent[index].ngaySinh = document.getElementById("ngaySinh").value
+        listStudent[index].lop = document.getElementById("lop").value
+
+        localStorage.setItem("listStudent", JSON.stringify(listStudent)) //luu du lieu vao localStorage
+        document.getElementById("save").style.display = "inline-block"
+        document.getElementById("update").style.display = "none"
+        hienThiDanhSachSinhVien()
+        resetInput()
+    }
+    
+    function deleteStudent(index){
+        let listStudent = localStorage.getItem("listStudent") ? JSON.parse(localStorage.getItem("listStudent")) : [] //kiem tra xem co du lieu trong localStorage chua if co thi giai ma lay ra con khong thi tao mang rong
+        if (confirm("Bạn có chắc chắn muốn xóa sinh viên này không?")){
+            listStudent.splice(index, 1) //xoa du lieu trong mang
+        }
+        localStorage.setItem("listStudent", JSON.stringify(listStudent)) //luu du lieu vao localStorage
+        hienThiDanhSachSinhVien()
+    }
+</script>
+
+</body>
+</html>
