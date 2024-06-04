@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ứng dụng quản lý sinh viên</title>
+  </head>
+  <body class="container mx-auto p-4 bg-gradient-to-r from-lime-300 to-pink-400 ">
+    <div class="bg-white w-[85%] mx-auto mt-[60px] px-[30px] py-[30px] rounded-[15px]">
+      <h2 class="text-2xl font-bold mb-4">Thêm sinh viên</h2>
+      <div class="mb-8">
+        <div class="mb-4">
+          <label for="hoTen" class="block text-gray-700 text-sm font-bold mb-2"
+            >Họ tên:</label
+          >
+          <input
+            type="text"
+            id="hoTen"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <p class="text-red-500" id="errorHT"></p>
+        </div>
+        <div class="mb-4">
+          <label for="maSV" class="block text-gray-700 text-sm font-bold mb-2"
+            >Mã SV:</label
+          >
+          <input
+            type="text"
+            id="maSV"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <p class="text-red-500" id="errorMSV"></p>
+        </div>
+        <div class="mb-4">
+          <label for="ngaySinh" class="block text-gray-700 text-sm fontbold mb-2"
+            >Ngày sinh:</label
+          >
+          <input
+            type="date"
+            id="ngaySinh"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <p class="text-red-500" id="errorNS"></p>
+        </div>
+        <div class="mb-4">
+          <label for="lop" class="block text-gray-700 text-sm font-bold mb-2"
+            >Lớp:</label
+          >
+          <input
+            type="text"
+            id="lop"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <p class="text-red-500" id="errorLop"></p>
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            id="btnThem"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadowoutline"
+          >
+            Thêm
+          </button>
+        </div>
+      </div>
+      <h2 class="text-2xl font-bold mb-4">Danh sách sinh viên</h2>
+      <table id="bangSinhVien" class="table-auto w-full">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Họ tên</th>
+            <th class="px-4 py-2">Mã SV</th>
+            <th class="px-4 py-2">Ngày sinh</th>
+            <th class="px-4 py-2">Lớp</th>
+            <th class="px-4 py-2">Hành động</th>
+          </tr>
+        </thead>
+        <!-- <button
+        id="btnSua"
+        class="flex items-center justify-between bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadowoutline"
+      >
+          Sửa 
+        </button>
+
+        <button
+
+        id="btnXoa"
+        class="flex items-center justify-between bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadowoutline"
+          Xoá
+      > -->
+        </button>
+
+        <tbody ></tbody>
+      </table>
+    </div>
+    <script src="tailwind.js"></script>
+    <script type="module" src="js/validate.js"></script>
+  </body>
+</html>
